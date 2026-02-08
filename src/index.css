@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Usando a cor de fundo suave que configuramos */
+  @apply bg-moreira-50 text-slate-900 font-sans antialiased;
+}
+
+/* Estilo para a barra de rolagem ficar elegante */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-moreira-200 rounded-full hover:bg-moreira-500 transition-colors;
+}
