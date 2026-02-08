@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,19 +9,27 @@ html {
 }
 
 body {
-  /* Usando a cor de fundo suave que configuramos */
-  @apply bg-moreira-50 text-slate-900 font-sans antialiased;
+  @apply bg-moreira-50 text-slate-900 font-sans antialiased overflow-x-hidden;
 }
 
-/* Estilo para a barra de rolagem ficar elegante */
+/* --- Scrollbar Personalizada (Toque Premium) --- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  @apply bg-moreira-50;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-moreira-200 rounded-full hover:bg-moreira-500 transition-colors;
+  @apply bg-moreira-200 rounded-full border-2 border-moreira-50;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-moreira-500;
+}
+
+/* --- Seleção de Texto (Detalhe Sutil) --- */
+::selection {
+  @apply bg-moreira-500 text-white;
 }

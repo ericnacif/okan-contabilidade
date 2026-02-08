@@ -1,5 +1,43 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { Award, TrendingUp, Users } from "lucide-react";
+
+// Pequeno componente para animar os números
+const Counter = ({
+  value,
+  duration = 2,
+}: {
+  value: number;
+  duration?: number;
+}) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 50,
+    stiffness: 100,
+    duration: duration * 1000, // converte para ms
+  });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, value, motionValue]);
+
+  // Transforma o número quebrado (ex: 1.54) em inteiro (1, 2)
+  const displayValue = useTransform(springValue, (latest) =>
+    Math.round(latest),
+  );
+
+  return <motion.span ref={ref}>{displayValue}</motion.span>;
+};
 
 export const About = () => {
   return (
@@ -9,7 +47,7 @@ export const About = () => {
 
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-start gap-12 lg:gap-20">
-          {/* Lado Esquerdo: FOTO EM CARD (Novo Design) */}
+          {/* Lado Esquerdo: FOTO EM CARD */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -17,11 +55,11 @@ export const About = () => {
             transition={{ duration: 0.6 }}
             className="w-full md:w-5/12 lg:w-4/12 relative"
           >
-            <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100 rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100 rotate-2 hover:rotate-0 transition-transform duration-500 group">
               <img
                 src="/foto-augusto.jpeg"
                 alt="Augusto Moreira Raulino"
-                className="w-full aspect-[3/4] object-cover rounded-xl filter grayscale-[10%] hover:grayscale-0 transition-all duration-500"
+                className="w-full aspect-[3/4] object-cover rounded-xl filter grayscale-[10%] group-hover:grayscale-0 transition-all duration-500"
               />
               <div className="mt-4 text-center pb-2">
                 <p className="font-bold text-slate-900 text-lg">
@@ -34,13 +72,18 @@ export const About = () => {
             </div>
 
             {/* Selo CPA-20 Flutuante */}
-            <div className="absolute -top-4 -right-4 bg-moreira-900 text-white p-3 rounded-full shadow-lg flex items-center justify-center w-16 h-16 border-4 border-white">
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ delay: 0.5, type: "spring" }}
+              className="absolute -top-4 -right-4 bg-moreira-900 text-white p-3 rounded-full shadow-lg flex items-center justify-center w-16 h-16 border-4 border-white z-10"
+            >
               <span className="text-[10px] font-bold text-center leading-tight">
                 CPA
                 <br />
                 20
               </span>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Lado Direito: TEXTO E DADOS */}
@@ -74,32 +117,45 @@ export const About = () => {
               </p>
             </div>
 
-            {/* Barra de Estatísticas (Estilo Tech) */}
+            {/* Barra de Estatísticas com Animação */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-slate-100 pt-8">
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-moreira-500 mb-1">
-                  <TrendingUp size={20} />
-                  <span className="font-bold text-2xl">2+</span>
+              <div className="flex flex-col gap-1 group cursor-default">
+                <div className="flex items-center gap-1 text-moreira-500 mb-1">
+                  <TrendingUp
+                    size={24}
+                    className="group-hover:scale-110 transition-transform"
+                  />
+                  <span className="font-bold text-3xl">
+                    <Counter value={2} />+
+                  </span>
                 </div>
                 <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">
                   Anos de Experiência
                 </p>
               </div>
 
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-moreira-500 mb-1">
-                  <Users size={20} />
-                  <span className="font-bold text-2xl">+100</span>
+              <div className="flex flex-col gap-1 group cursor-default">
+                <div className="flex items-center gap-1 text-moreira-500 mb-1">
+                  <Users
+                    size={24}
+                    className="group-hover:scale-110 transition-transform"
+                  />
+                  <span className="font-bold text-3xl">
+                    +<Counter value={100} duration={2.5} />
+                  </span>
                 </div>
                 <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">
                   Clientes Atendidos
                 </p>
               </div>
 
-              <div className="hidden md:flex flex-col gap-1">
+              <div className="hidden md:flex flex-col gap-1 group cursor-default">
                 <div className="flex items-center gap-2 text-moreira-500 mb-1">
-                  <Award size={20} />
-                  <span className="font-bold text-xl">Certificado</span>
+                  <Award
+                    size={24}
+                    className="group-hover:scale-110 transition-transform"
+                  />
+                  <span className="font-bold text-2xl">Certificado</span>
                 </div>
                 <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">
                   Profissional CPA-20

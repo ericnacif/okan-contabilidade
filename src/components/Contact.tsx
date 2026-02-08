@@ -1,4 +1,11 @@
-import { Phone, Mail, User, ArrowRight } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  User,
+  ArrowRight,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
 export const Contact = () => {
   return (
@@ -50,6 +57,31 @@ export const Contact = () => {
                   </p>
                 </div>
               </div>
+
+              {/* Redes Sociais no Contato também */}
+              <div className="pt-8 border-t border-slate-800 mt-8">
+                <p className="text-sm text-slate-400 mb-4 font-bold uppercase tracking-wider">
+                  Acompanhe nas redes
+                </p>
+                <div className="flex gap-4">
+                  <a
+                    href="https://www.instagram.com/_moreiracontabilidade/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-slate-300 hover:text-moreira-500 transition-colors"
+                  >
+                    <Instagram size={20} /> Instagram
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/augusto-moreira-28176331a/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-slate-300 hover:text-moreira-500 transition-colors"
+                  >
+                    <Linkedin size={20} /> LinkedIn
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -60,22 +92,19 @@ export const Contact = () => {
               method="POST"
               className="space-y-4"
             >
-              {/* Configurações Ocultas do FormSubmit */}
               <input
                 type="hidden"
                 name="_subject"
                 value="Novo Contato via Site - Moreira Contabilidade"
               />
-              <input type="hidden" name="_captcha" value="false" />{" "}
-              {/* Desativa captcha para ser mais rápido */}
-              <input type="hidden" name="_template" value="table" />{" "}
-              {/* Formata o email bonitinho */}
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
               <input
                 type="hidden"
                 name="_next"
                 value="https://moreiracontabilidade.vercel.app/"
-              />{" "}
-              {/* Opcional: Redirecionar após envio */}
+              />
+
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">
                   Nome Completo
