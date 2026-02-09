@@ -9,7 +9,6 @@ import { Footer } from "./components/Footer";
 import { WhatsAppBtn } from "./components/WhatsAppBtn";
 
 function App() {
-  // Lógica da Barra de Progresso
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -18,10 +17,10 @@ function App() {
   });
 
   return (
-    <div className="bg-white min-h-screen font-sans text-slate-900 selection:bg-moreira-200 selection:text-moreira-900">
-      {/* A Barra de Progresso Fixa no Topo */}
+    <div className="bg-white min-h-screen font-sans text-slate-900 selection:bg-okan-200 selection:text-okan-900">
+      {/* Barra de Progresso no topo (Cor OKAN) */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1.5 bg-moreira-500 origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-1.5 bg-okan-500 origin-left z-[60]"
         style={{ scaleX }}
       />
 

@@ -35,19 +35,19 @@ export const Navbar = () => {
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 cursor-pointer z-50">
+            {/* LOGO NOVA */}
             <img
-              src="/logo-moreira-contabilidade.jpeg"
-              alt="Moreira"
+              src="/okan-logo.JPG"
+              alt="OKAN Contabilidade"
               className="h-10 w-auto rounded-md shadow-sm"
             />
             <span
               className={`text-xl font-bold tracking-tight ${scrolled || isOpen ? "text-slate-900" : "text-slate-900"}`}
             >
-              Moreira<span className="text-moreira-500">.</span>
+              OKAN<span className="text-okan-500">.</span>
             </span>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -56,10 +56,10 @@ export const Navbar = () => {
                 smooth={true}
                 duration={500}
                 offset={-80}
-                className="text-slate-600 hover:text-moreira-600 font-medium cursor-pointer transition-colors text-sm uppercase tracking-wide relative group"
+                className="text-slate-600 hover:text-okan-600 font-medium cursor-pointer transition-colors text-sm uppercase tracking-wide relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-moreira-500 transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-okan-500 transition-all group-hover:w-full"></span>
               </Link>
             ))}
           </div>
@@ -68,13 +68,12 @@ export const Navbar = () => {
             <Link
               to="contact"
               smooth={true}
-              className="bg-moreira-900 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-moreira-500 transition-all cursor-pointer flex items-center gap-2 text-sm shadow-lg hover:shadow-moreira-500/25"
+              className="bg-okan-900 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-okan-500 transition-all cursor-pointer flex items-center gap-2 text-sm shadow-lg hover:shadow-okan-500/25"
             >
               <Phone size={18} /> Fale Conosco
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-slate-800 z-50 p-2"
@@ -84,14 +83,12 @@ export const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Fullscreen Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
             className="fixed inset-0 bg-white z-40 md:hidden flex flex-col items-center justify-center space-y-8"
           >
             {navLinks.map((link) => (
@@ -100,7 +97,7 @@ export const Navbar = () => {
                 to={link.to}
                 smooth={true}
                 onClick={() => setIsOpen(false)}
-                className="text-2xl font-bold text-slate-800 hover:text-moreira-500"
+                className="text-2xl font-bold text-slate-800 hover:text-okan-500"
               >
                 {link.name}
               </Link>
@@ -108,9 +105,9 @@ export const Navbar = () => {
             <Link
               to="contact"
               onClick={() => setIsOpen(false)}
-              className="mt-8 bg-moreira-500 text-white px-8 py-3 rounded-full font-bold text-lg"
+              className="mt-8 bg-okan-500 text-white px-8 py-3 rounded-full font-bold text-lg"
             >
-              Falar com Augusto
+              Falar com Consultor
             </Link>
           </motion.div>
         )}

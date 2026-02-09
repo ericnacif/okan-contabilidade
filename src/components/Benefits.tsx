@@ -84,7 +84,7 @@ export const Benefits = () => {
               </p>
 
               <div className="mt-6 pt-6 border-t border-slate-50 flex items-center gap-2 text-xs font-bold text-slate-400 group-hover:text-slate-800 transition-colors">
-                <Check size={14} className="text-green-500" /> Garantia Moreira
+                <Check size={14} className="text-green-500" /> Garantia OKAN
               </div>
             </motion.div>
           ))}

@@ -6,30 +6,30 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
-  @apply bg-moreira-50 text-slate-900 font-sans antialiased overflow-x-hidden;
+  @apply bg-okan-50 text-slate-900 font-sans antialiased overflow-x-hidden;
 }
 
-/* --- Scrollbar Personalizada (Toque Premium) --- */
+/* Scrollbar Personalizada OKAN */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-moreira-50;
+  @apply bg-okan-50;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-moreira-200 rounded-full border-2 border-moreira-50;
+  @apply bg-okan-200 rounded-full border-2 border-okan-50;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-moreira-500;
+  @apply bg-okan-500;
 }
 
-/* --- Seleção de Texto (Detalhe Sutil) --- */
 ::selection {
-  @apply bg-moreira-500 text-white;
+  @apply bg-okan-500 text-white;
 }

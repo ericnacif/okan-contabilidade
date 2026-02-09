@@ -9,66 +9,78 @@ import {
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-moreira-900 text-white">
+    // Alterei bg-okan-900 para bg-slate-900 para garantir o fundo escuro
+    <section id="contact" className="py-24 bg-slate-900 text-white">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Informações de Contato */}
+          {/* Informações de Contato (Lado Esquerdo) */}
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">
               Entre em Contato
             </h2>
             <p className="text-slate-400 mb-10 text-lg">
-              Preencha o formulário abaixo e retornaremos em breve.
+              Preencha o formulário e retornaremos em breve.
             </p>
 
             <div className="space-y-8">
+              {/* Nome */}
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-moreira-500">
+                <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-okan-500 shrink-0">
                   <User size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-slate-400">Contador Responsável</p>
-                  <p className="font-semibold text-lg">
+                  <p className="font-semibold text-lg text-white">
                     Augusto Moreira Raulino
                   </p>
                 </div>
               </div>
 
+              {/* Telefone */}
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-moreira-500">
+                <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-okan-500 shrink-0">
                   <Phone size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-slate-400">Telefone / WhatsApp</p>
-                  <p className="font-semibold text-lg hover:text-moreira-500 transition-colors cursor-pointer">
+                  <a
+                    href="https://wa.me/5533984286959"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-lg text-white hover:text-okan-500 transition-colors cursor-pointer"
+                  >
                     (33) 98428-6959
-                  </p>
+                  </a>
                 </div>
               </div>
 
+              {/* E-mail */}
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-moreira-500">
+                <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-okan-500 shrink-0">
                   <Mail size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-slate-400">E-mail</p>
-                  <p className="font-semibold text-lg hover:text-moreira-500 transition-colors cursor-pointer">
+                  <a
+                    href="mailto:moreiracontabilidadee@gmail.com"
+                    className="font-semibold text-lg text-white hover:text-okan-500 transition-colors cursor-pointer"
+                  >
                     moreiracontabilidadee@gmail.com
-                  </p>
+                  </a>
                 </div>
               </div>
 
-              {/* Redes Sociais no Contato também */}
+              {/* Redes Sociais */}
               <div className="pt-8 border-t border-slate-800 mt-8">
                 <p className="text-sm text-slate-400 mb-4 font-bold uppercase tracking-wider">
                   Acompanhe nas redes
                 </p>
                 <div className="flex gap-4">
                   <a
-                    href="https://www.instagram.com/_moreiracontabilidade/"
+                    href="https://www.instagram.com/okancontabilidade/" // Link Atualizado
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-slate-300 hover:text-moreira-500 transition-colors"
+                    className="flex items-center gap-2 text-slate-300 hover:text-okan-500 transition-colors"
                   >
                     <Instagram size={20} /> Instagram
                   </a>
@@ -76,7 +88,7 @@ export const Contact = () => {
                     href="https://www.linkedin.com/in/augusto-moreira-28176331a/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-slate-300 hover:text-moreira-500 transition-colors"
+                    className="flex items-center gap-2 text-slate-300 hover:text-okan-500 transition-colors"
                   >
                     <Linkedin size={20} /> LinkedIn
                   </a>
@@ -85,7 +97,7 @@ export const Contact = () => {
             </div>
           </div>
 
-          {/* Formulário Funcional */}
+          {/* Formulário (Lado Direito) */}
           <div className="bg-white rounded-2xl p-8 text-slate-900 shadow-2xl">
             <form
               action="https://formsubmit.co/moreiracontabilidadee@gmail.com"
@@ -95,7 +107,7 @@ export const Contact = () => {
               <input
                 type="hidden"
                 name="_subject"
-                value="Novo Contato via Site - Moreira Contabilidade"
+                value="Novo Contato via Site - OKAN"
               />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
@@ -113,7 +125,7 @@ export const Contact = () => {
                   type="text"
                   name="name"
                   required
-                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-moreira-500 outline-none transition-all"
+                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-okan-500 outline-none transition-all"
                   placeholder="Seu nome"
                 />
               </div>
@@ -125,7 +137,7 @@ export const Contact = () => {
                   type="email"
                   name="email"
                   required
-                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-moreira-500 outline-none transition-all"
+                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-okan-500 outline-none transition-all"
                   placeholder="seu@email.com"
                 />
               </div>
@@ -137,13 +149,13 @@ export const Contact = () => {
                   name="message"
                   rows={4}
                   required
-                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-moreira-500 outline-none transition-all"
+                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-okan-500 outline-none transition-all"
                   placeholder="Como podemos ajudar?"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full py-4 bg-moreira-500 text-white font-bold rounded-lg hover:bg-moreira-600 transition-all flex justify-center items-center gap-2 shadow-lg shadow-moreira-500/20"
+                className="w-full py-4 bg-okan-500 text-white font-bold rounded-lg hover:bg-okan-600 transition-all flex justify-center items-center gap-2 shadow-lg shadow-okan-500/20"
               >
                 Enviar Contato <ArrowRight size={18} />
               </button>
