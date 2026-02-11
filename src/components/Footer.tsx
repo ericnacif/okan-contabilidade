@@ -26,7 +26,7 @@ export const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/_moreiracontabilidade/"
+                href="https://www.instagram.com/okancontabilidade/"
                 target="_blank"
                 className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-okan-500 hover:text-white transition-all"
               >
