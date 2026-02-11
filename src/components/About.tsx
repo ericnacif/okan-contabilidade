@@ -49,10 +49,9 @@ export const About = () => {
         <div className="flex flex-col md:flex-row items-start gap-12 lg:gap-20">
           {/* Lado Esquerdo: FOTO EM CARD */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="w-full md:w-5/12 lg:w-4/12 relative"
           >
             <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100 rotate-2 hover:rotate-0 transition-transform duration-500 group">
@@ -70,6 +69,7 @@ export const About = () => {
                 </p>
               </div>
             </div>
+
           </motion.div>
 
           {/* Lado Direito: TEXTO E DADOS */}
