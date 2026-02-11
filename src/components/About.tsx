@@ -70,20 +70,6 @@ export const About = () => {
                 </p>
               </div>
             </div>
-
-            {/* Selo CPA-20 Flutuante */}
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ delay: 0.5, type: "spring" }}
-              className="absolute -top-4 -right-4 bg-moreira-900 text-white p-3 rounded-full shadow-lg flex items-center justify-center w-16 h-16 border-4 border-white z-10"
-            >
-              <span className="text-[10px] font-bold text-center leading-tight">
-                CPA
-                <br />
-                20
-              </span>
-            </motion.div>
           </motion.div>
 
           {/* Lado Direito: TEXTO E DADOS */}
