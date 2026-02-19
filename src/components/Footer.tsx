@@ -106,6 +106,17 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()} OKAN Contabilidade. Todos os
             direitos reservados.
           </p>
+          <p className="text-xs">
+            Desenvolvido por{" "}
+            <a
+              href="https://ericnacif.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-slate-400 hover:text-okan-500 transition-colors"
+            >
+              Eric Nacif
+            </a>
+          </p>
           <button
             onClick={scrollToTop}
             className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider hover:text-white transition-colors"
